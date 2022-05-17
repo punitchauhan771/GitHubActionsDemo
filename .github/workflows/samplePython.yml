@@ -1,0 +1,17 @@
+name: learn-github-actions_with_python
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses : actions/setup-python 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
+      - run: sudo apt update
+      - run: sudo apt install python3
+      - run: ls 
+
